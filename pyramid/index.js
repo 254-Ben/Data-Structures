@@ -12,5 +12,36 @@
 //      ' # '
 //      ' ### '
 //      '#####'
+// Method 1
+// function pyramid(n) {
 
-function pyramid(n) {}
+//     for(let i=1; i<= n; i++){
+  
+//       let str = ' '.repeat(n-i);
+  
+//       let str2 = '#'. repeat(i*2 -1)
+  
+//       console.log(str + str2 + str);
+  
+//     }
+  
+//   }
+//   pyramid(3);
+
+//Method 2
+function pyramid(n) {
+    const midpoint = Math.floor((2 * n - 1) / 2)
+
+    for (let row = 0; row < n; row ++) {
+        let level = '';
+        for (let column = 0; column < 2 * n - 1; column++) {
+            if (midpoint - row <= column && midpoint + row >= column) {
+                level += '#'
+            } else {
+                level += ' '
+            }
+        }
+        console.log(level);
+    }
+}
+pyramid(10);
